@@ -28,3 +28,5 @@ Also this can be used by anyone on his responsibilty. I carries no liabilties if
 Ruby is an open source, object-oriented programming lan- guage created by Yukihiro “Matz” Matsumoto. Ruby has gained worldwide acceptance as an easy-to-learn, powerful, and expressive language, espe- cially since the advent of Ruby on Rails, a web application framework written in Ruby (http://www.rubyonrails.org). Ruby’s core is written in the C programming language and runs on all major platforms. It is an interpreted rather than compiled language.
 
 # D2 ruby control structures
+
+s = "This is #{year}"
