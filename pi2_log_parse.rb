@@ -1,13 +1,38 @@
 #! /usr/bin/env ruby
+=begin
+#objective of this program was to parse a log file "pi2_logfile"
+#ojective 1 - minute and total number of line in that minute
+minute,Total
+Jan 20 4:8,1
+Jan 20 4:9,1
+Jan 20 4:10,2
+Jan 20 4:12,1
+Jan 20 4:13,4
+Jan 20 4:14,13
+Jan 20 4:15,2
+Jan 20 4:16,2
+#generate data for app which is seventh column
+minute,ccs,app,log,cpp,test,app4,app3,app2,app1,app7,app8,app11,app10
+Jan 20 4:8,1,1,0,0,0,0,0,0,0,0,0,0,0,0
+Jan 20 4:9,1,0,1,0,0,0,0,0,0,0,0,0,0,0
+Jan 20 4:10,2,0,0,1,1,0,0,0,0,0,0,0,0,0
+Jan 20 4:12,1,0,0,0,0,1,0,0,0,0,0,0,0,0
+Jan 20 4:13,4,1,1,0,0,2,0,0,0,0,0,0,0,0
+Jan 20 4:14,13,0,4,1,0,0,1,1,1,1,1,1,1,1
+Jan 20 4:15,2,0,0,0,0,0,0,0,0,0,0,0,1,1
+Jan 20 4:16,2,0,0,0,0,0,0,0,0,0,0,0,1,1
+# Later was asked to keep the program in sniff mode.
+=end
+
 
 def print_output(count,app_name)
 print "minute,Total\n"
-count.each do |k,v| puts "#{k}:#{v["total"]}" end
+count.each do |k,v| puts "#{k},#{v["total"]}" end
 print "minute"
 app_name.each do |m| print ",#{m}" end
 print "\n"
 count.each do |k,v|
-   print "#{k}:#{v["total"]}"
+   print "#{k},#{v["total"]}"
     app_name.each do |v2|
       print ",#{v[v2].to_i}"
    end
