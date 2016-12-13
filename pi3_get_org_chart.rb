@@ -55,3 +55,19 @@ end
 puts "org chart"
 #puts "empty " if data[10]["reportee"].empty?
 org_chart(10, data,"")
+
+=begin
+output is
+org chart
+nameA - postA
+   nameB - postB
+      nameC - postC
+      nameD - postD
+      nameE - postE
+   nameF - postF
+      nameG - postG
+      nameH - postH
+         nameI - postI
+      nameJ - postJ
+   nameK - postK
+=end
