@@ -1,0 +1,191 @@
+Control structure
+- No parenthesis , no curli braces
+if boolean
+...
+elsif boolean
+...
+else
+...
+end
+
+
+
+support also like
+puts ' this is santosh ' if name == 'mantosh'
+
+
+unless boolean
+ ....
+ end
+
+
+ case test_value
+ when value
+ ..
+ when value
+ ...
+ else
+ ...
+ end
+
+ ternary op
+ boolean ? code1 :  code2
+
+ conditional or/equal
+
+
+ x= y||z
+
+
+ unless x
+ x =y
+ end
+
+ x ||= y
+
+ Loop
+ ======
+
+ Break = Terminate the whole loop
+ next = jump to next loop (don't do anything below me)
+ redo = Redo the loop (from start of this loop)
+ retry = star the whole loop over (from start)
+
+loop do
+ ..
+end
+
+while boolean
+...
+end
+
+these can be work in single line
+ex :  x=0
+  put x+=2 while x< 100
+
+ex :  x=0
+  put x+=2 until y <100
+
+Iterators - fixed traverse set of data
+5.times do
+ puts "hello"
+end
+
+1.upto(5) {puts "hello"}
+5.downto(1) {puts "hello"}
+{1..5}each {puts "hello"}
+
+1.upto(5) do |i|
+    puts "hello" + i.to_s
+end
+
+env = ['fe','be','qe']
+
+env.each do |loc_var|
+puts loc_var.capitalize
+end
+
+for loc_var in env
+puts loc_var.capitalize
+end
+
+Integer : times,upto , downto, step
+Range : each ,step
+String: each, each_line,each_byte
+Array : each, each_index, each_with_index
+Hash : each, each_key, each_value, each_pair
+
+
+Code block
+- { }
+- it is a replacement for do .. end
+- arr= [1,2,3,4,5]
+  arr.each {|n| puts n}
+- Note - for num in arr { puts n} will not work as it doesn't have do..end
+- n above is a block variable
+
+code block
+FIND
+ - find  return object/nil
+ - find_all/select return array
+ - any?  return bool
+ - all? return bool
+ - delete_if return array
+ - splat operator convert range into array. change (1..10) to [*1..10]
+
+MERGE
+ - Merge is only for Hashes.
+ - h1.merge(h2) - in conflict h2 wins
+ - conflict can be overwritten by using block
+    h1.merge(h2) {|key,old,new| old } - h1 wins
+ - you can do some operation like
+    h1.merge(h2) {|key,old,new| old*5 }
+ - can be conditional merge
+    h1.merge(h2) {|key,old,new| old < new ? old : new } - small value win
+ - Merge doesn't change the h1 and h2
+ - Changes h1 if we use ! like  h1.merge!(h2)
+
+ COLLECT/MAP
+ - used with array , hash ranges
+ arr.collect ( |i| i+1)
+
+ SORT
+ - comparison operator
+   <=> - spaceship operator
+   ex : val1 <=> val2 (-1,0,1(val1 > val2))
+irb(main):093:0> arr.sort
+=> [1, 2, 3, 4, 5]
+irb(main):095:0> arr.sort {|v1,v2| v1 <=> v2 }
+=> [1, 2, 3, 4, 5]
+irb(main):096:0> arr.sort {|v1,v2| v2 <=> v1 }
+=> [5, 4, 3, 2, 1]
+irb(main):097:0> arr.sort.reverse
+=> [5, 4, 3, 2, 1]
+
+- this is also helpful for sorting string
+
+sort_by
+
+
+Inject
+ - accumulator
+ - block variable called memo
+ - (1..10).inject {|memo,n| memo + n}
+ - (1..10).inject(100) {|memo,n| memo + n} - memo will start with 100
+ - print memo value and add
+    (1..10).inject {|memo,n| puts memo + n ; memo + n}
+
+
+
+
+Methods
+ def some_name
+ ...
+ end
+
+call of method is just saying name of method
+
+1 : irb
+require "./method.rb"
+welcome
+
+- method name can have ? which mean that this is used for test (human read).
+nothing changes from ruby perspective
+
+
+- irb -I. (load interactive irb with current directory .  )
+
+puts can be used with method
+like puts welcome
+
+
+argument can be added like
+method_name(arg1 ,arg2 , arg3="hello") - arg 3 become default
+this method will work with 2 and 3 argument.
+
+default should be last but may not be neccessary
+function can be called like method (nil, 2 ,3)
+
+
+- return value of method is output of last command.
+- 

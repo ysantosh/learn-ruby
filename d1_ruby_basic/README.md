@@ -1,5 +1,12 @@
-Install ruby
-Follow instruction at https://www.ruby-lang.org/en/documentation/installation/ and install ruby.
+# Table of Contents
+- [Introduction](#Introduction)
+- [Ruby installation](#)
+
+# Introduction
+Ruby is an open source, object-oriented programming language created by Yukihiro “Matz” Matsumoto. Ruby has gained worldwide acceptance as an easy-to-learn, powerful, and expressive language, especially since the advent of Ruby on Rails, a web application framework written in Ruby (http://www.rubyonrails.org). Ruby’s core is written in the C programming language and runs on all major platforms. It is an interpreted rather than compiled language.
+
+## Ruby installation
+Follow instruction at https://www.ruby-lang.org/en/documentation/installation/
 
 There are three different ways we can work with ruby.
   The first is going to be a single command.
