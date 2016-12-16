@@ -1,6 +1,7 @@
 # Table of Contents
 - [Introduction](#Introduction)
-- [Ruby installation](#)
+  - [Ruby installation](#Ruby-installation)
+  - [My first program](#My-first-program)
 
 # Introduction
 Ruby is an open source, object-oriented programming language created by Yukihiro “Matz” Matsumoto. Ruby has gained worldwide acceptance as an easy-to-learn, powerful, and expressive language, especially since the advent of Ruby on Rails, a web application framework written in Ruby (http://www.rubyonrails.org). Ruby’s core is written in the C programming language and runs on all major platforms. It is an interpreted rather than compiled language.
@@ -8,46 +9,50 @@ Ruby is an open source, object-oriented programming language created by Yukihiro
 ## Ruby installation
 Follow instruction at https://www.ruby-lang.org/en/documentation/installation/
 
+## My first program
 There are three different ways we can work with ruby.
-  The first is going to be a single command.
-  The second will be using a Ruby file, actually saving a file that has Ruby code in it.
-  The third will be IRB, the Interactive Ruby Shell.
+- The First is going to be a single command.
+- The Second will be using a Ruby file, actually saving a file that has Ruby code in it. 
+- The Third will be IRB, the Interactive Ruby Shell.
 
-
-Example of first one should be
-
+### Example of first one
+```ruby
 $> ruby -e 'print "hello world"'
-$> ruby -e 'puts "hello world"'
+$> ruby -e 'puts "hello world"' # puts add a new line
+```
+> **Note** : puts add a new line where print doesn't
 
-Note : puts add a new line where print doesn't
-
-Example of 2nd one is write the content in a file(hello_world.rb). save it with .rb extension.
-Compile it using
-$> ruby -c hello_world.rb
-
+### Example of second one
+write the content in a file `hello_world.rb` 
+```ruby
+#! /usr/bin/env ruby
+puts "hello world"
+```
+Compile/Test for syntax  using
+``` 
+$> ruby -c hello_world.rb 
+```
 Execute it using
+```
 $> ruby  hello_world.rb
+or
+$> ./hello_world.rb
+```
+### Example of third one
+Interactive ruby shell(IRB) 
+- Allow us to interact with code in realtime
+- work like a calc
+- great testing tool
 
-Interactive ruby shell(IRB)
-   Allow us to interact with code in realtime
-   work like a calc
-   great testing tool
+To get a irb shell just type irb `$>irb` which shows irb shell as `irb(main):001>`
 
-To get a irb shell just type irb
-$>irb
-irb(main):001>
-
-#return value shows with sign =>
-irb(main):009:0> puts 4+5
-9
+```ruby
+irb(main):009:0> puts "hello world"
+Hello world
 => nil
-#return value is nil
+```
+> **Note** : return value shows with sign => and in above case return value is nil
 
-irb(main):010:0> 4+5
-=> 9
-#return value is 9
-
-#type quit to get out from irb
 
 
 Ruby is Object oriented programming and variable is an exception.
