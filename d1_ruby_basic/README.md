@@ -9,7 +9,7 @@ Ruby is an open source, object-oriented programming language created by Yukihiro
 ## Ruby installation
 Follow instruction at https://www.ruby-lang.org/en/documentation/installation/
 
-## My first program
+## Invoke ruby
 There are three different ways we can work with ruby.
 - The First is going to be a single command.
 - The Second will be using a Ruby file, actually saving a file that has Ruby code in it. 
@@ -48,107 +48,136 @@ To get a irb shell just type irb `$>irb` which shows irb shell as `irb(main):001
 
 ```ruby
 irb(main):009:0> puts "hello world"
-Hello world
+hello world
 => nil
 ```
 > **Note** : return value shows with sign => and in above case return value is nil
 
+Another example where return value is not nil
+```ruby
+irb(main):010:0> 4+5
+=> 9
+#return value is 9
+```
+## Tools for my first program
+
+### Comments
+In ruby comments start with hash or pound character (#), or =begin and =end
+```ruby
+# I am single line comment , ignore me
+puts "my name is santosh" # I am comment in the same line as code, code will be executed and I will be ignored
+=begin
+multiline comment started with (=begin)
+keep saying bla bla 
+bla bla bla bla
+comment end with (=end) string
+=end
+```
+
+### variable name
+Ruby is Object oriented programming and variable is an exception. Variables in ruby are lowercase letter with _  in it.
+- Example includes
+  - name = "santosh yadav"
+  - age = 34
+  - float_age = 34.0
+  - arr = [1,2,3,4]
+- Variable doesn't have data type . A variable can hold any data type.
+
+### Get user input
+In ruby we use gets to get user input and Examples are
+- name = gets.chomp
+- age = gets.chomp.to_i
+
+### Display string with string evaluation
+puts and print is used to display output. puts add a new line where print doesn't. Examples
+- puts "My name is santosh yadav"
+- print "Enter your age:"
+- puts "My name is #{name}"
+
+## My first program
+Get name and age and return half of the age entered.
+```ruby
+#! /usr/bin/env ruby
+print "Enter your name : "   # print will not add new line
+name = gets.chomp            # remove \n and add rest to variable name 
+print "Enter your age : "
+age = gets.chomp.to_i        # to_i convert string to integer
+half_age = age/2
+puts "Hi , My name is #{name} and half age is #{half_age}"  # string manipulation using #{variable}
+```
+Output
+```bash
+./a.rb
+Enter your name : santosh Yadav
+Enter your age : 34
+Hi , My name is santosh Yadav and half age is 17
+
+Next run
+./a.rb
+Enter your name : santosh Yadav
+Enter your age : sa
+Hi , My name is santosh Yadav and half age is 0
+```
+
+# Integer
+An Integer (int type) is a whole number such as 1, 5. All whole number is instance of Integer class and this class is the basis for the two concrete classes that hold whole numbers, Bignum and Fixnum. More info - https://ruby-doc.org/core-2.2.0/Integer.html
+
+## Types 
+### Fixnum
+Holds Integer values that can be represented in a native machine word (minus 1 bit). If any operation on a Fixnum exceeds this range, the value is automatically converted to a Bignum.
+Fixnum objects have immediate value. This means that when they are assigned or passed as parameters, the actual object is passed, rather than a reference to that object.
+
+examples - 
+- 45 , 3400 or 34_00 or 340_0 etc
+- 0x96b Hexadecimal
+- 0b101011010110 Binary
+
+### Bignum
+Bignum objects hold integers outside the range of Fixnum. Bignum objects are created automatically when integer calculations would otherwise overflow a Fixnum. When a calculation involving Bignum objects returns a result that will fit in a Fixnum, the result is automatically converted.
+For the purposes of the bitwise operations and [], a Bignum is treated as if it were an infinite-length bitstring with 2’s complement representation.
+While Fixnum values are immediate, Bignum objects are not—assignment and parameter passing work with references to objects, not the objects themselves.
+
+examples
+- 24110000000000000000
+
+## Methods
+- to_i - Convert string to number eg - `num = "40" ; puts num.to_i`
+- odd?/even? - Return true or false eg - `40.odd? #return false`
+- pred/next - Returns the Integer equal to int - 1. ` 40.pred # return 39 `
+- times {|i| block } - Iterate the block int times eg - ` 5.times { |i| puts i," " } # 0,1,2,3,4`
+- upto(limit) {|i| block } - Iterates the given block, passing in integer values from int up to and including limit.
+- downto(limit) {|i| block } - Iterates the given block, passing in integer values from int up to and including limit.
+```ruby
+5.upto(10) { |i| print i, " " }
+#=> 5 6 7 8 9 10
+5.downto(1) { |n| print n, ".. " }
+print "  Liftoff!\n"
+#=> "5.. 4.. 3.. 2.. 1..   Liftoff!"
+```
+## Integer operation 
+|Operation |	Symbol |	Example |	Result|
+| --- | --- | --- | --- | 
+|Addition 	|+ |	30 + 10 |	40|
+|Subtraction | 	- |	30 - 10 |	20|
+|Multiplication |	* |	30 * 10 |	300|
+|Division |	/ 	|30 /10 |	3|
+|Modulus (remainder) | 	% |	30 % 10 |	0|
+|Exponent (power) |	** |	30**2 |	900|
+
+# Float
+The Float class is for floating-point numbers. It is the native architecture’s double-precision floating-point representation internally.
+The Complex class represents complex numbers—that is, a number expressed in the form a+bi where i is an imagi‐ nary number (or unit). Once a part of the standard library, Complex is now in Ruby’s core.
+Rational represents rational numbers—that is, the quotient of two integers in the form a/b. Now part of Ruby’s core.
 
 
-Ruby is Object oriented programming and variable is an exception.
+# String
+A String object holds and manipulates an arbitrary sequence of bytes, typically representing characters. String objects may be created using String::new or as literals. More info https://ruby-doc.org/core-2.2.0/String.html
 
-Variables in ruby are lowercase letter with _  in it.
-certain notation for scope
-Global - add a $ sign in front like $variable
-Class - add @@ sign in front like @@variable
-Instance - add @ sign in front like @variable
-Local/block - just variable like variable
+Example
+- name = "santosh yadav"
+- strvar = str("new world")
 
+# File handle
 
-Number class -- Integer and float
-        Integer class consist of Fixnum and Bignum
-            to get this try 123.class/122321321312321.class on irb
-        Float class
+# My second program
 
-String - valuation #{variable_name}
-
-
-Array
-data_set = []
-data_set = ["a" "b" "c"]
-data_set return all value
-data_set[2] return c
-data_set[3] will return nil
-data_set << "d"  (append <<)
-data_set[1] = nil (clear pocket 1)
-data_set.clear = clear an array
-Note data_set = nil doesn't clear the array but also clear the type . so performing data_set.class will give nilclass
-
-Arrays operation
-arr.reverse
-arr.sort
-arr.uniq - return uniq element but doesn't change arr
-arr.uniq! - replace arr with uniq element
-arr.join(",") - changes to string
-arr.to_s - changes to string
-arr.inspect - changes to string
-arr = str.split(" ") - a str can be split like this to generate arr
-arr.delete_at(2) - delete at position at 2
-arr.delete(4) - delete the number 4 in arr
-arr.push(4) - similar to arr << 4
-arr.pop - remove last element
-arr.shift - remove from head
-arr.unshift(1) - add in head
-arr + arr2 will be a new arr
-arr3= arr+ arr2
-
-Hashes - An unordered, object indexed collection of objects (key value pair)
-hash = {'first_name'=>'hello',"sec"=>'hello'}
-hash['first_name']
-To get keys
-hash.index('hello') will return first_name
-hash.keys
-hash.values
-hash.length
-hash.size
-hash.to_a - change to array
-hash.clear - simple empty hash
-hash = {}
-hash['key'] = 'hello'
-
-Symbols
- - similar to string but not string
- - Its a Label
- - Stored in memory ONE time
- - use in hash as label(key) and save memory as it is stored once.
- - symbol is not variable also
-
- Booleans - used for comparison
- - true/false
- - comparison - == , < > <= => ! != && ||
- - z.nil?
- - 2.between?(1,4)
- - [1,2,3].empty?
- - [].emtpy?
- - [1,2,3].include?(2)
- - {'a'=>1, 'b'=>2}.has_key?('a')  true
- - {'a'=>1, 'b'=>2}.has_value?(2)  true
-
-Ranges
- - range 1..10  
-    two kind of range
-        inclusive 1..10 - 1..10
-        exclusive(three dot) 1...10 - 1..9
-
-- x = 1..10
-- x.class will give Range
-- x.begin/x.first
-- x.end/x.last -include last/end also give 10
-- x.include?(10)
-- z = [*x]  z is array of range value
-- range with alphabet also
-
-Constant
-  - constant is variable constant
-  - Use uppercase or Upcase
-  - constant can be changed but ruby will give warning
